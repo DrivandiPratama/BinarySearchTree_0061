@@ -81,3 +81,16 @@ public:
         }
     }
 void search(int element, node *&parent, node *&currentnode)
+{
+    // This function serches the currentnode of the specified node as well as the current node of its parent
+    currentnode = ROOT;
+    parent = nullptr;
+    while ((currentnode != nullptr) && (currentnode->info != element))
+    {
+        parent = currentnode;
+        if (element < currentnode->info)
+            currentnode = currentnode->leftchild;
+        else    
+            currentnode = currentnode->rightchild;
+    }
+}
