@@ -14,7 +14,7 @@ public:
     // Contructor for the node class
     node()
     {
-        leftchild = nullptr; // Initialize left child to null
+        leftchild = nullptr;  // Initialize left child to null
         rightchild = nullptr; // Initialize right child to null
     }
 };
@@ -51,7 +51,7 @@ public:
         search(x, parent, currentnode);
 
         // Step 5 : if parent is NULL (Tree is empty)
-        if(parent == nullptr)
+        if (parent == nullptr)
         {
             // 5a : Mark the new node as ROOT
             ROOT = newnode;
@@ -69,7 +69,7 @@ public:
             // 6b : exit
             return;
         }
-        
+
         // step 7 : if the value in the data field of the new node is greater than that of the parent
         else if (x > parent->info)
         {
@@ -80,19 +80,24 @@ public:
             return;
         }
     }
-void search(int element, node *&parent, node *&currentnode)
-{
-    // This function serches the currentnode of the specified node as well as the current node of its parent
-    currentnode = ROOT;
-    parent = nullptr;
-    while ((currentnode != nullptr) && (currentnode->info != element))
+    void search(int element, node *&parent, node *&currentnode)
     {
-        parent = currentnode;
-        if (element < currentnode->info)
-            currentnode = currentnode->leftchild;
-        else    
-            currentnode = currentnode->rightchild;
+        // This function serches the currentnode of the specified node as well as the current node of its parent
+        currentnode = ROOT;
+        parent = nullptr;
+        while ((currentnode != nullptr) && (currentnode->info != element))
+        {
+            parent = currentnode;
+            if (element < currentnode->info)
+                currentnode = currentnode->leftchild;
+            else
+                currentnode = currentnode->rightchild;
+        }
     }
-}
 
-bool isEmpty()
+    bool isEmpty()
+    {
+        // Check if the tree is empty
+        return ROOT == nullptr;
+    }
+ 
