@@ -94,3 +94,5 @@ void search(int element, node *&parent, node *&currentnode)
             currentnode = currentnode->rightchild;
     }
 }
+
+bool isEmpty()
