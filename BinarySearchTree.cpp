@@ -129,3 +129,19 @@ public:
         preorder(ptr->leftchild);
         preorder(ptr->rightchild);
     }
+
+    void postoreder(node *ptr)
+    {
+        if (isEmpty())
+        {
+            cout << "Tree is empty" << endl;
+            return;
+        }
+        if (ptr == nullptr)
+            return;
+            
+        postoreder(ptr->leftchild);
+        postoreder(ptr->rightchild);
+        cout << ptr->info << " "; // parent
+    }
+};
